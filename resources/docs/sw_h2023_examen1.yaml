@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Examen 01
+  description: API de gestion d'une liste de sorts du jeu Donjons et Dragons. Réalisé dans le cadre du cours Services Web au Cégep de Victoriaville.
+  
+servers: 
+  - url: http://sw_exam1.loc
+paths:
+  /:
+    get:
+      tags:
+        - Général
+      summary: Message de bienvenue
+      responses:
+        '200': 
+          description: Un petit message de bienvenue
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                example:
+                    message : "Services Web H2023 - Examen 01 - Maintenant c'est du sérieux"
+  
+  /ecoles:
+    get:
+      tags:
+        - Genre
+      summary: Affiche la liste de toutes les écoles de magie.
+
+      responses:
+        '200': 
+          description: Un tableau de toutes les écoles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: [Abjuration,Conjuration,Divination,Enchantment,Evocation,Illusion,Necromancy,Transmutation]
